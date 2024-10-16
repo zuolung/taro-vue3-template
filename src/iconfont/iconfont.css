@@ -1,0 +1,57 @@
+@font-face {
+  font-family: jmc-icon;
+  /* Project id 4699592 */
+  /* Color fonts */
+  src:
+    url('iconfont.woff2?t=1728633314312') format('woff2'),
+    url('iconfont.woff?t=1728633314312') format('woff'),
+    url('iconfont.ttf?t=1728633314312') format('truetype');
+}
+
+.jmc-icon {
+  font-family: jmc-icon !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.jmc-icon-xiajiantou::before {
+  content: "\e611";
+}
+
+.jmc-icon-youjiantou::before {
+  content: "\e612";
+}
+
+.jmc-icon-qingchu::before {
+  content: "\e713";
+}
+
+.jmc-icon-loading::before {
+  content: "\e627";
+}
+
+.jmc-icon-yanjing::before {
+  content: "\e661";
+}
+
+.jmc-icon-password::before {
+  content: "\e601";
+}
+
+.jmc-icon-yonghu::before {
+  content: "\e61f";
+}
+
+.jmc-icon-clear::before {
+  content: "\e615";
+}
+
+.jmc-icon-biyan::before {
+  content: "\e65d";
+}
+
+.jmc-icon-Nodata-pana_fuzhi::before {
+  content: "\e692";
+}

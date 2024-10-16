@@ -1,0 +1,93 @@
+/* stylelint-disable unit-no-unknown */
+.pages-login-index {
+  height: 100vh;
+  position: relative;
+
+  .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .content {
+    padding-top: 80px;
+    z-index: 2;
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .logo {
+      height: 160px;
+      width: 160px;
+    }
+
+    .form-box {
+      margin-top: 10px;
+      border-radius: 12px;
+      width: calc(100vw - 40px);
+      background-size: 100% 100%;
+      height: 340px;
+
+      .tabs {
+        display: flex;
+        align-items: center;
+        color: #386df8;
+        text-align: center;
+        line-height: 33px;
+        margin-top: 10px;
+        font-size: 13px;
+        height: 66rpx;
+
+        .tab {
+          flex: 1;
+        }
+
+        .active {
+          position: relative;
+          line-height: 86rpx;
+          height: 86rpx;
+          font-size: 36rpx !important;
+          font-weight: bold;
+
+          .line {
+            position: absolute;
+            content: "";
+            display: block;
+            bottom: 0;
+            left: 50%;
+            height: 4px;
+            width: 30px;
+            background-color: #386df8;
+            transform: translateX(-50%);
+          }
+        }
+      }
+
+      .form {
+        padding: 0 22px;
+        margin-top: 35px;
+
+        .item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 16px;
+          background-color: #efefefa6;
+          font-size: 14px;
+          padding: 10px 8px;
+          border-radius: 8px;
+        }
+      }
+
+      .submit-btn {
+        margin-top: 30px;
+      }
+    }
+  }
+}
