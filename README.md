@@ -19,6 +19,7 @@ API_URL='https://xxx.lexing.com'
 
 ### 目录结构
 
+```t
 ├── config/                    # taro 构建配置
 ├── types/                     # 全局TS类型
 ├── src
@@ -33,6 +34,7 @@ API_URL='https://xxx.lexing.com'
 │   ├── app.config.js          # 路由配置、全局页面配置
 │   ├── app.ts                 # 入口文件
 │   ├── app.scss               # 全局样式
+```
 
 ### 主体功能
 
