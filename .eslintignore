@@ -25,3 +25,14 @@ config
 LICENSE
 
 src/iconfont
+node_moules
+config
+dist
+build
+weapp
+alipay
+kwai
+swan
+tt
+qq
+h5
