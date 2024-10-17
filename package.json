@@ -41,11 +41,14 @@
     "dayjs": "^1.11.13",
     "js-sha256": "^0.11.0",
     "pinia": "^2.2.2",
+    "prettier": "^2.7.1",
     "taro-hooks": "^2.1.0",
     "vue": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "@tarojs/cli": "3.5.8",
     "@tarojs/plugin-framework-vue3": "3.5.8",
     "@tarojs/plugin-html": "3.5.8",
@@ -62,28 +65,26 @@
     "@vue/babel-plugin-jsx": "^1.0.6",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-preset-taro": "3.5.8",
+    "conventional-changelog-cli": "^2.1.1",
     "css-loader": "3.4.2",
+    "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^16.4.5",
     "env-cross": "^0.0.1-security",
     "eslint": "^8.12.0",
     "eslint-config-taro": "3.5.8",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^8.0.0",
+    "husky": "^7.0.1",
     "lint-staged": "11.0.1",
     "style-loader": "1.3.0",
     "stylelint": "14.16.1",
     "stylelint-config-prettier": "9.0.5",
     "stylelint-config-standard": "29.0.0",
-    "typescript": "^3.7.0",
+    "typescript": "^4.7.0",
     "unplugin-vue-components": "^0.22.12",
     "vue-loader": "^17.0.0",
-    "webpack": "5.69.0",
-    "@commitlint/cli": "^12.1.4",
-    "@commitlint/config-conventional": "^12.1.4",
-    "conventional-changelog-cli": "^2.1.1",
-    "cz-conventional-changelog": "^3.3.0",
-    "husky": "^7.0.1"
+    "webpack": "5.69.0"
   },
   "commitlint": {
     "extends": [
@@ -109,6 +110,8 @@
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog",
+      "disableScopeLowerCase": false,
+      "disableSubjectLowerCase": false,
       "types": {
         "feat": {
           "description": "新功能（feature）"

@@ -3,14 +3,14 @@ import { View } from '@tarojs/components'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'xxx',
-  setup() {
-    return () => {
-      return (
-        <Container class="pages-home-index">
-          <View>home</View>
-        </Container>
-      )
-    }
-  },
+	name: 'xxx',
+	setup() {
+		return () => {
+			return (
+				<Container class="pages-home-index">
+					<View>home</View>
+				</Container>
+			)
+		}
+	},
 })

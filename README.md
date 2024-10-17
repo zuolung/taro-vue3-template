@@ -1,6 +1,6 @@
 ## Taro + vue3 项目模版
 
-taro版本`3.5.8`，目前支持微信、支付宝、抖音、快手、百度小程序；支持H5
+taro版本`3.5.8`，目前支持微信、支付宝、抖音、快手、百度小程序；支持H5；微信外的小程序需要添加命令行和`project`配置
 
 ### 启动项目
 
@@ -58,9 +58,17 @@ API_URL='https://xxx.lexing.com'
   - `emit`需要在`setup`的第二个回调参数中使用emit
   - `slot`需要`setup`的第二个回调参数中使用slot['default/xx']和taroComponents下面的Slot搭配使用
 - 内置组件：
-  - `container`: 页面公共容器
+  - `container`: 页面公共容器，`TODO`新增`NavBar`、`TabBar`
   - `datePickerBox`: 基于nutDatePicker时间选择
   - `pickerBox`: 基于nutPicker选择
   - `cascaderBox`: 基于cascaderBox级联选择
   - `checkList`: 选择列表
-  - `uploaderBox`: 上传组件
+  - `uploaderBox`: 上传组件, 非全路径存储地址，须`TODO`图片回填方式
+
+### 代码模板
+
+输入提示词`apage`
+
+### commit规范
+
+
