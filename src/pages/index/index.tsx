@@ -14,3 +14,7 @@ export default defineComponent({
 		}
 	},
 })
+
+definePageConfig({
+	navigationBarTitleText: '首页',
+})
