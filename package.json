@@ -13,7 +13,7 @@
     "watch:h5": "cross-env NODE_ENV=development npx taro build --type h5 --watch",
     "dev:weapp": "cross-env NODE_ENV=development API_ENV=dev npx taro build --type weapp --watch",
     "dev:h5": "cross-env NODE_ENV=development API_ENV=dev npx taro build --type h5 --watch",
-    "prepare": "npx husky install"
+    "prepare": "husky install"
   },
   "browserslist": [
     "last 3 versions",
@@ -78,6 +78,63 @@
     "typescript": "^3.7.0",
     "unplugin-vue-components": "^0.22.12",
     "vue-loader": "^17.0.0",
-    "webpack": "5.69.0"
+    "webpack": "5.69.0",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "conventional-changelog-cli": "^2.1.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^7.0.1"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "type-enum": [
+        2,
+        "always",
+        [
+          "feat",
+          "fix",
+          "style",
+          "chore",
+          "typings",
+          "docs",
+          "refactor",
+          "test"
+        ]
+      ]
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog",
+      "types": {
+        "feat": {
+          "description": "新功能（feature）"
+        },
+        "fix": {
+          "description": "修补bug"
+        },
+        "style": {
+          "description": "格式（不影响代码运行的变动）"
+        },
+        "chore": {
+          "description": "构建过程或辅助工具的变动"
+        },
+        "typings": {
+          "description": "Typescript 类型错误"
+        },
+        "docs": {
+          "description": "文档（documentation）"
+        },
+        "refactor": {
+          "description": "重构（既不是新增功能，也不是修改bug的代码变动）"
+        },
+        "test": {
+          "description": "增加或修改测试用例"
+        }
+      }
+    }
   }
 }

@@ -52,7 +52,7 @@ API_URL='https://xxx.lexing.com'
 - UI框架： [NutUI-Vue 组件](https://nutui.jd.com/h5/vue/4x/#/zh-CN/guide/intro)
 - 异常捕获和埋点：[@antmjs/trace](https://github.com/AntmJS/antm/blob/main/packages/trace)
   - 上报信息：`@/trace`下已定义好初始化方法和上报阿里云存储的示例
-  - 事件埋点： `data-click-id`定义时间埋点，复杂埋点通过`exposure`投放
+  - 事件埋点： `data-click-id`定义事件埋点，复杂埋点通过`exposure`投放
 - 支持JSX: 
   - `tsx`的组件写法，省略组件注册、更便捷的遍历渲染和条件渲染
   - `emit`需要在`setup`的第二个回调参数中使用emit
