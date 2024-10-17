@@ -71,4 +71,14 @@ API_URL='https://xxx.lexing.com'
 
 ### commit规范
 
-
+```bash
+# "feat"          新功能（feature）
+# "fix"           修补bug
+# "style"         格式（不影响代码运行的变动）
+# "chore"         构建过程或辅助工具的变动
+# "typings"       Typescript 类型错误
+# "docs"          文档（documentation）
+# "refactor"      重构（既不是新增功能，也不是修改bug的代码变动）
+# "test"          增加或修改测试用例
+git commit -m 'feat: xxxxx'
+```
