@@ -11,14 +11,15 @@
   "editor.tabSize": 2,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": true,
-  // "tslint.typeCheck": true,
+  "tslint.typeCheck": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
-    "source.fixAll.stylelint": "explicit"
+    "source.fixAll.stylelint": "explicit",
   },
   "eslint.options": {
-    "overrideConfigFile": ".eslintrc.js"
+    "overrideConfigFile": ".eslintrc.js",
+    "autoFixOnSave": true
   },
   "stylelint.enable": true,
   "stylelint.validate": [
