@@ -6,9 +6,9 @@ taro版本`3.5.8`，目前支持微信、支付宝、抖音、快手、百度小
 
 启动方式分为下面三种方式
 
-- `yarn watch:xx`: 测试环境地址`uat`
-- `yarn dev:xx`: 开发环境地址`dev`
-- `yarn build:xx`: 线上环境地址`real`
+- `yarn watch:xx`: 开发环境地址`uat`、体验版环境`uat`、正式版环境`real`
+- `yarn dev:xx`: 根据node环境变量`API_URL`或` process.env.API_ENV`改变请求环境/域名
+- `yarn build:xx`: 体验版环境`uat`、正式版环境`real`
 
 可以通过创建`.env`文件，设置`API_URL`环境变量来强制修改当前请求的环境，或者通过命令行`cross-env`设置
 
@@ -81,4 +81,6 @@ API_URL='https://xxx.lexing.com'
 # "refactor"      重构（既不是新增功能，也不是修改bug的代码变动）
 # "test"          增加或修改测试用例
 git commit -m 'feat: xxxxx'
+# 或者快捷方式commit
+npx cz
 ```

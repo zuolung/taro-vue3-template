@@ -20,10 +20,11 @@ declare let ks: any
 declare let tt: any
 
 declare namespace NodeJS {
-  interface ProcessEnv {
-    NODE_ENV: 'production' | 'development'
-    TARO_ENV: 'weapp' | 'alipay' | 'h5' | 'tt' | 'kwai'
-    API_ENV: 'real' | 'uat' | 'dev'
-    DEPLOY_VERSION: string
-  }
+	interface ProcessEnv {
+		API_URL: string
+		NODE_ENV: 'production' | 'development'
+		TARO_ENV: 'weapp' | 'alipay' | 'h5' | 'tt' | 'kwai'
+		API_ENV: 'real' | 'uat' | 'dev'
+		DEPLOY_VERSION: string
+	}
 }
