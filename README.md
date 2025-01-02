@@ -17,6 +17,22 @@ taro版本`3.5.8`，目前支持微信、支付宝、抖音、快手、百度小
 API_URL='https://xxx.lexing.com'
 ```
 
+### 在线构建发布
+
+- `preview.config.js`配置邮件发送
+- `./scripts/weappkey`配置代码上传密钥, 须在平台配置白名单
+- 多个需求并发时，请以开发版二维码测试
+
+```bash
+# 打包容器中配置加密后的appSecretKey, 使用scripts/utils下面的safeKey.create加密
+npm run xkey xxxxxxxxxxxxxxx
+# 打包
+npm run build:weapp
+# 上传
+# 新需求的版本号，第一次构建不会邮件通知
+npm run uploadWx
+```
+
 ### 目录结构
 
 ```t

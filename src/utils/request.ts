@@ -1,5 +1,5 @@
 import { request as TRequest, getAccountInfoSync, reLaunch } from '@tarojs/taro'
-import { Toast } from '../utils/utils'
+import { Toast, getCurPage, isDev } from '../utils/utils'
 import { useMainStore } from '../store/index'
 import { EMlf } from '@antmjs/trace'
 import { monitor } from '@/trace'
@@ -14,23 +14,26 @@ function sendMonitor(option: any, res: any) {
 		d4: res.code,
 		d5: JSON.stringify(res),
 	}
-	if (process.env.NODE_ENV === 'development') {
+	if (isDev) {
 		console.error('development:requestCatch', option, res)
 	}
 	monitor(EMlf.api, params)
 }
 
-interface RequestType<T> {
+export interface RequestType<T> {
 	url: string
 	method?: keyof Taro.request.Method
 	header?: TaroGeneral.IAnyObject
 	data?: T
-	handleBiz?: boolean // 错误信息自行处理，默认false，request内部toast/错误页面
+	/** 错误信息自行处理，默认false，request内部toast/错误页面 */
+	handleBiz?: boolean
+	/** 错误反馈方式 */
 	errorShow?: 'toast' | 'errorPage'
+	/** 是否全局loaing */
 	useLoading?: boolean
 }
 
-interface ResponseType<T> {
+export interface ResponseType<T> {
 	code: number
 	message?: string
 	data?: T
@@ -44,16 +47,16 @@ interface ResponseType<T> {
  */
 let baseURL = ''
 const URLS = {
-	uat: 'https://amsuat.jmcyilushun.com',
-	real: 'https://ams.jmcyilushun.com',
-	dev: 'https://amsdev.jmcyilushun.com',
+	uat: 'https://amsuat.jmclexing.com',
+	real: 'https://ams.jmclexing.com',
+	dev: 'https://amsdev.jmclexing.com',
 }
 let requestEnv: 'uat' | 'real' | 'dev' = 'uat'
-const accountIno = getAccountInfoSync()
-const minEnvVersion = accountIno.miniProgram.envVersion
 if (process.env.TARO_ENV === 'h5') {
 	requestEnv = process.env.API_ENV || 'uat'
 } else {
+	const accountIno = getAccountInfoSync()
+	const minEnvVersion = accountIno.miniProgram.envVersion
 	if (['develop', 'trial'].includes(minEnvVersion)) {
 		requestEnv = process.env.API_ENV || 'uat'
 	} else {
@@ -104,6 +107,17 @@ function handleHttpCode(res, setPageErrorInfo) {
 	}
 }
 
+function goLogin() {
+	const curPage = getCurPage()
+	if (!curPage['$taroPath'].includes('pages/login/index')) {
+		Toast('登陆超时', () => {
+			reLaunch({
+				url: '/pages/login/index',
+			})
+		})
+	}
+}
+
 // 业务状态码判断
 function handleBizCode(result: ResponseType<any>) {
 	switch (result.code) {
@@ -111,11 +125,13 @@ function handleBizCode(result: ResponseType<any>) {
 		case 1:
 			return true
 		case 401:
-			reLaunch({
-				url: 'pages/login/index',
-			})
+			goLogin()
 			// 登陆超时
 			return 401
+		case 303:
+			goLogin()
+			// 登陆超时
+			return 303
 		default:
 			// 业务响应失败
 			return false
@@ -146,7 +162,6 @@ function createHeader() {
 		token: userInfo.openId,
 		timestamp: timestamp,
 	}
-
 	const header = {
 		'Accept-Language': 'zh-CN',
 		openId: userInfo.openId || '',
@@ -205,15 +220,17 @@ function request<T = any, U = any>(requestParams: RequestType<T>): Promise<Respo
 		})
 			.then((res) => {
 				const httpRes = handleHttpCode(res, setPageErrorInfo_)
+
 				if (httpRes) {
 					const success = handleBizCode(httpRes)
+
 					if (success || handleBiz) {
 						resolve(httpRes)
 					} else if (success === false) {
 						sendMonitor(requestParams, res)
 						if (errorShow === 'toast') {
-							setHasRequestErrorBefore()
 							if (!hasRequestErrorBefore) Toast(httpRes.message || '服务异常')
+							setHasRequestErrorBefore()
 						} else {
 							setPageErrorInfo_({
 								errorCode: httpRes.code || 500,
